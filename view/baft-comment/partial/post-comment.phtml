@@ -1,0 +1,39 @@
+<?php
+/**
+ * USE as template for postComment helper
+ * eg. :  $this->postComment()->setOptions(['template'=>'application/partial/comment.phtml']);
+ */
+?>
+
+<div>
+
+<?php
+$form = $this->message_form;
+
+$form->setAttributes ( [ 
+		'class' => 'color-black' 
+] );
+$form->remove ( 'author_name' )->remove ( 'author_email' )->remove ( 'message_subject' );
+$form->get ( 'content' )->setLabel ( "message" )->setAttributes ( [ 
+		'class' => "form-control placeholder-no-fix  rtl align-right bg-grey-steel",
+		'rows' => "3",
+		'placeholder' => "message" 
+] )->setOptions ( [ 
+		'label_attributes' => [ 
+				'style' => 'width:100%' 
+		] 
+] );
+$form->get ( 'submit' )->setAttributes ( [ 
+		'class' => 'btn btn-success margin-top float-left',
+		'id' => 'submit-submission' 
+] )->setValue ( 'ارسال و ذخیره' );
+
+$form->prepare ();
+
+echo $this->form ()->openTag ( $form );
+
+echo $this->formCollection ( $form );
+
+echo $this->form ()->closeTag ();
+?>
+</div>

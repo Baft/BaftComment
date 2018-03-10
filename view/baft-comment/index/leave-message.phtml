@@ -1,0 +1,15 @@
+<?php
+$form = $this->message_form;
+$form->setAttribute ( 'ACTION', $this->url ( 'baftcomment/leave_message', [ ], [ 
+		'cmnt' => $this->comment_id 
+] ) );
+$form->setAttribute ( 'METHOD', 'POST' );
+$form->prepare ();
+
+echo $this->form ()->openTag ( $form );
+
+echo $this->formCollection ( $form );
+
+echo $this->form ()->closeTag ();
+
+?>

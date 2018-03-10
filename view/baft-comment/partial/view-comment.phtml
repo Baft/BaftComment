@@ -1,0 +1,42 @@
+<?php
+$hasParent = $this->parent_message_id;
+?>
+<div>
+	<div class="bg-grey small-padding">
+
+		<i> <i class="fa fa-user small-padding-left small-padding-right"></i>
+			<?php print $this->author_name; ?> 
+			&nbsp; : &nbsp;
+		</i> <a
+			href="<?php print $this->url("baftcomment/remove_message"); ?>"
+			title="delete message"
+			class=" mid-padding-left mid-padding-right display-block float-left">
+			<i class="fa fa-trash"></i>
+		</a> <a href="<?php print $this->url("baftcomment/edit_message"); ?>"
+			target="_blank" title="edit message"
+			class=" mid-padding-left mid-padding-right display-block float-left">
+			<i class="fa fa-wrench"></i>
+		</a> <a
+			href="<?php print $this->url("baftcomment/leave_message",[],["pmsg"=>$this->id]); ?>"
+			target="_blank" title="response to this message"
+			class=" mid-padding-left mid-padding-right display-block float-left">
+			<i class="fa fa-indent"></i>
+		</a> <span
+			href="<?php print $this->url("baftcomment/score_message",["message" => $this->id ,"opinion"=>"plus"]); ?>"
+			title="aggreed"
+			class="badge badge-success  cursor-pointer mid-margin-right display-block float-left">
+			<i class="fa fa-plus-circle " style="line-height: 10px;"></i> <u
+			class="small-margin-right small-margin-left bold">0</u>
+		</span> <span
+			href="<?php print $this->url("baftcomment/score_message",["message" => $this->id ,"opinion"=>"minus"]); ?>"
+			title="disagreed"
+			class="badge badge-danger  cursor-pointer  mid-margin-left display-block float-left">
+			<i class="fa fa-minus-circle " style="line-height: 10px;"></i> <u
+			class="small-margin-right small-margin-left bold">0</u>
+		</span>
+
+
+		<div class="clear-both"></div>
+	</div>
+	<pre class="no-margin-top no-padding-top"><?php print $this->content;?></pre>
+</div>
